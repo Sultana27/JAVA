@@ -1,0 +1,70 @@
+package game;
+
+public class Runner {
+	// We only need one room manager, so we will make it static
+	private static RoomManager manager = new RoomManager(5);
+	
+	// Boolean used to control when our game is running. We set it to true initially
+	private static boolean running = true;
+		
+	// Main method
+	public static void main(String[] args) {
+		// Run the init method to instantiate our house
+		manager.init();	
+				
+		/* Create the player here. 
+		 * *Note: We could have made the player a static object
+		 * as well, just like the RoomManager
+		 */
+		Player player = new Player();
+		Menus.play();
+		// Print instructions to play the game
+		Menus.printInstructions();
+		
+		// The player should start in the 'starting room'
+		player.setCurrentRoom(manager.getStartingRoom());
+		
+		/*
+		 * Game Logic...We print the player's location and ask for 
+		 * input...thats it!
+		 * This method has NOT been altered from the example shown
+		 * in class. This is the ONLY code for the game's loop...
+		 * 
+		 */
+		while (running) {
+	
+			Menus.printRoom(player);
+			String[] input = Input.collectInput();
+			Input.parse(input, player);
+		}
+		
+		/*
+		 * This if statement is actually not required, but
+		 * explicitly details that we will print the following
+		 * message, only when the game is no longer running
+		 */
+		if (!running) {
+			
+			
+			System.out.println("Thanks for playing");
+			System.out.println();
+			System.out.println(" \t> In this project I have created 5 Rooms. ");
+			System.out.println("\t> There were 4 exits - North,South,East,West");
+			System.out.println(" \t> We have used parse() method to gather input from user and converted it into array.");
+			System.out.println(" \t> We split the String into an array of size 2");
+			
+			
+			
+		}
+	}
+	
+	/*
+	 * Since the 'running' boolean is private, this allows us
+	 * to change the state of the game to 'off'. Note that we
+	 * do not need to change running to 'true' in any method
+	 * if we simply set running to true initially...
+	 */
+	public static void endGame() {
+		running = false;
+	}
+}
