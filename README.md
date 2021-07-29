@@ -1,5 +1,5 @@
 
-## This repository **Revature-Training-Assigments** contains:
+This repository **Revature-Training-Assigments** contains:
   Markup : * Bullet list
            * Nested bullet
                   * Sub-nested bullet etc
