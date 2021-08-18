@@ -1,6 +1,6 @@
 This repository **Revature-Training-Assigments** contains:
   
- * Labs assignmed during
+ * Labs assignments for 
      * Week 1
      * Week 2
   * Project A - UnitConverter
